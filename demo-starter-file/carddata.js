@@ -4,9 +4,21 @@
 
 // import { initializeApp } from "firebase/app";
 
+// Import the functions you need from the SDKs you need
+
+
+
 
 var filePath = "./carddata.json";
 var data = require(filePath);
+// url (required), options (optional)
+fetch('https://jsonkeeper.com/b/8GEK', {
+    method: 'get'
+}).then(function(response) {
+  console.log(response);
+}).catch(function(err) {
+    // Error :(
+});
 console.log(data);
 export default data;
 /*

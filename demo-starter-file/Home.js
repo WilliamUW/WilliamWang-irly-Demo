@@ -33,7 +33,7 @@ const Home = () => {
         </Pressable>
         <Pressable
           style={styles.button}
-          onPress={() => navigation.navigate("Settings")}
+          onPress={() => navigation.navigate("User Profile")}
         >
           <Text style={styles.text}>Settings</Text>
         </Pressable>
