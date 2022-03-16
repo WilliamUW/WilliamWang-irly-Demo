@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }from "react";
 import {
   StyleSheet,
   Text,
@@ -18,7 +18,7 @@ import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 // import { UploadOutlined } from '@ant-design/icons';
 
 import data from "./carddata"
-
+import ImagePickerExample from "./ImagePickerExample"
 
 /*
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -93,6 +93,8 @@ const ProfileTextInput = () => {
 };
 import * as ImagePicker from 'expo-image-picker';
 
+let photoUri = "";
+
 const pickImage = async () => {
   let result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -104,14 +106,35 @@ const pickImage = async () => {
   console.log(result);
 
   if (!result.cancelled) {
-    setImage(result.uri);
+    // setImage(result.uri);
+    photoUri = result.uri;
+    console.log(photoUri);
+    console.log("Good")
   }
 };
 
 const myWidth = Dimensions.get("window").width;
 const myHeight = Dimensions.get("window").height;
+let photo = "";
 class Settings extends React.Component {
+  pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
   
+    console.log(result);
+  
+    if (!result.cancelled) {
+      // setImage(result.uri);
+      photoUri = result.uri;
+      console.log(photoUri);
+      console.log("Good");
+      this.setState(this.state);
+    }
+  };
 
   handleChoosePhoto = () => {
     console.log("Photo Button pressed");
@@ -151,6 +174,13 @@ class Settings extends React.Component {
             title="Choose Profile Pic"
             onPress={pickImage}
           ></Button>
+          {photoUri ? <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: photoUri != "" ? photoUri : 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      /> : <Text>No photo</Text>}
+      <ImagePickerExample />
           {/* <Button
           title="Begin"
           style={styles.btn}
@@ -176,6 +206,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },  
   txt: {
     color: "#fff",
     fontWeight: "bold",

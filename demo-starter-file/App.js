@@ -9,6 +9,7 @@ import Home from "./Home";
 import Swipe from "./Swipe";
 import Settings from "./Settings";
 import SwipeClass from "./Swipe";
+import ImagePickerExample from "./ImagePickerExample";
 
 
 // react-native-vector-icons/Ionicons otherwise.
@@ -47,7 +48,7 @@ function MyTabs() {
     })}>
       <Tab.Screen name="Home" icon={"./assets/human.png"} component={Home} />
       <Tab.Screen name="Swipe"  component={SwipeClass} />
-      <Tab.Screen name="User Profile" component={Settings} />
+      <Tab.Screen name="User Profile" component={ImagePickerExample} />
     </Tab.Navigator>
   );
 }

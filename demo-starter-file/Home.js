@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    marginTop: myHeight / 3,
+    marginTop: myHeight / 5,
   },
   btn: {
     color: "#FFF",
