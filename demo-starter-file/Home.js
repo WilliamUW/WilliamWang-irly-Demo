@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Text style={styles.txt}>IRLY Swipe Demo</Text>
+        <Text style={styles.txt}>Welcome to the IRLY Swipe Demo!</Text>
         {/* <Button
           title="Begin"
           style={styles.btn}

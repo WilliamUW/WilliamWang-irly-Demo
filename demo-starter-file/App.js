@@ -9,7 +9,8 @@ import Home from "./Home";
 import Swipe from "./Swipe";
 import Settings from "./Settings";
 
-
+// react-native-vector-icons/Ionicons otherwise.
+import Ionicons from 'react-native-vector-icons/Ionicons';
 // import {HomeScreen} from "../screens/HomeScreen"; 
 
 // Import the functions you need from the SDKs you need
@@ -21,9 +22,29 @@ export const ThemeContext = React.createContext();
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Swipe" component={Swipe} />
+    <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
+
+        if (route.name === 'Home') {
+          iconName = focused
+            ? 'ios-information-circle'
+            : 'ios-information-circle-outline';
+        } else if (route.name === 'Swipe') {
+          iconName = 'ios-list-box-outline';
+        } else {
+          iconName = 'ios-list-outline';
+        }
+
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+      tabBarActiveTintColor: 'tomato',
+      tabBarInactiveTintColor: 'gray',
+    })}>
+      <Tab.Screen name="Home" icon={"./assets/human.png"} component={Home} />
+      <Tab.Screen name="Swipe"  component={Swipe} />
       <Tab.Screen name="User Profile" component={Settings} />
     </Tab.Navigator>
   );

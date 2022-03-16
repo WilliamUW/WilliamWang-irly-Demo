@@ -8,14 +8,16 @@ import {
   SafeAreaView,
   Pressable,
   Dimensions,
-  TextInput
+  TextInput,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import Swipe from "./Swipe";
-import {launchImageLibrary} from "react-native-image-picker";
-
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+// import * as ImagePicker from "react-native-image-picker"
 // import { Upload, Button, Space } from 'antd';
 // import { UploadOutlined } from '@ant-design/icons';
+
+
 
 const ProfileTextInput = () => {
   const [text, onChangeText] = React.useState("Default Username");
@@ -29,11 +31,8 @@ const ProfileTextInput = () => {
         onChangeText={onChangeText}
         value={text}
       />
-<Text>{
-}</Text>
-            <Text style={styles.txt}>{
-              
-              "Your Phone Number:"}</Text>
+      <Text>{}</Text>
+      <Text style={styles.txt}>{"Your Phone Number:"}</Text>
 
       <TextInput
         style={styles.input}
@@ -51,14 +50,20 @@ const myHeight = Dimensions.get("window").height;
 class Settings extends React.Component {
   handleChoosePhoto = () => {
     console.log("Photo Button pressed");
-    
-    const options = {
-      noData: true
+
+    let options = {
+      title: 'Choose an image',       
+        storageOptions: {
+          skipBackup: true
+        }
     };
-    launchImageLibrary(options,response => {
-      console.log("response", response);
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        // on cancel
+    } else { }
+
+      //console.log(response);
     });
-    
   };
   /*
   state = {
@@ -68,36 +73,35 @@ class Settings extends React.Component {
   
 
 */
-render() {
-
-  return (
-    <SafeAreaView>
-      <View style={styles.container}>
-      <Text  style={styles.txt}>{
-}</Text>
-        <Text style={styles.txt}>User Profile Tab</Text>
-        <Text  style={styles.txt}>{
-}</Text>
-       <ProfileTextInput style={styles.txt}></ProfileTextInput>
-       <Text style={styles.txt}>{
-}</Text>
-        <Button title="Choose Profile Pic" onPress={this.handleChoosePhoto}></Button>
-        {/* <Button
+  render() {
+    return (
+      <SafeAreaView>
+        <View style={styles.container}>
+          <Text style={styles.txt}>{}</Text>
+          <Text style={styles.txt}>User Profile Tab</Text>
+          <Text style={styles.txt}>{}</Text>
+          <ProfileTextInput style={styles.txt}></ProfileTextInput>
+          <Text style={styles.txt}>{}</Text>
+          <Button
+            title="Choose Profile Pic"
+            onPress={this.handleChoosePhoto}
+          ></Button>
+          {/* <Button
           title="Begin"
           style={styles.btn}
           onPress={() => navigation.navigate("Swipe")}
         /> */}
-        {/* <Pressable
+          {/* <Pressable
           style={styles.button}
           onPress={() => navigation.navigate(Swipe)}
         >
           <Text style={styles.text}>Begin</Text>
         </Pressable> */}
-      </View>
-    </SafeAreaView>
-  );
-      }
-};
+        </View>
+      </SafeAreaView>
+    );
+  }
+}
 
 export default Settings;
 
