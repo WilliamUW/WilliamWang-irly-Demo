@@ -5,6 +5,11 @@ import Card from "./Card";
 import carddata from "./carddata";
 import { useNavigation } from "@react-navigation/core";
 
+class SwipeClass extends React.Component {
+  render() {
+    return <Swipe />;
+  }
+}
 
 const Swipe = () => {
   const [index, setIndex] = useState(0);

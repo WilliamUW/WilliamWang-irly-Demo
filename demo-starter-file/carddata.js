@@ -6,19 +6,67 @@
 
 // Import the functions you need from the SDKs you need
 
+import { initializeApp } from "firebase/app";
 
+import { getDatabase } from "firebase/database";
+
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAsKEmxVNsnDUDxZJ7kwTZMk8ehDrOdlc0",
+
+  authDomain: "irly-demo.firebaseapp.com",
+
+  databaseURL: "https://irly-demo-default-rtdb.firebaseio.com",
+
+  projectId: "irly-demo",
+
+  storageBucket: "irly-demo.appspot.com",
+
+  messagingSenderId: "179945535098",
+
+  appId: "1:179945535098:web:a6f270ea7e3072ecb0edc3"
+
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+console.log(firebaseConfig);
+console.log(app);
+// Get a reference to the database service
+const database = getDatabase(app);
+
+console.log(database);
+
+import { ref, child, get } from "firebase/database";
+
+let databaseReference = get(ref(getDatabase()));
+console.log(databaseReference);
+let data = [];
+databaseReference.then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log("Data available");
+    console.log(snapshot.val());
+    data = snapshot.val();
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
 
 
 var filePath = "./carddata.json";
-var data = require(filePath);
-// url (required), options (optional)
-fetch('https://jsonkeeper.com/b/8GEK', {
-    method: 'get'
-}).then(function(response) {
-  console.log(response);
-}).catch(function(err) {
-    // Error :(
-});
+// data = require(filePath);
+
 console.log(data);
 export default data;
 /*

@@ -18,8 +18,8 @@ const Card = ({ card }) => {
   return (
     <TouchableWithoutFeedback onPress={changePhoto}>
       <View style={styles.card}>
-        <Image source={{uri :card.images[imgIndex]}} style={styles.cardImage} />
-        <Text style={styles.txt}>{card.name}</Text>
+        <Image source={{uri :(card && card.images ? card.images[imgIndex] : "" )}} style={styles.cardImage} />
+        <Text style={styles.txt}>{card ? card.name : "Default"}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
