@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   txt: {
     flex: 0.1,
     fontWeight: "bold",
-    fontSize: 40,
+    fontSize: 20,
     color: "#AEFEFF",
     textShadowColor: "rgba(0, 0, 0, 0.75)",
     textShadowOffset: { width: -1, height: 1 },

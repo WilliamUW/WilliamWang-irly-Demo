@@ -17,6 +17,8 @@ import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 // import { Upload, Button, Space } from 'antd';
 // import { UploadOutlined } from '@ant-design/icons';
 
+import data from "./carddata"
+
 
 /*
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -65,7 +67,7 @@ getRedirectResult(auth)
   */
 
 const ProfileTextInput = () => {
-  const [text, onChangeText] = React.useState("Default Username");
+  const [text, onChangeText] = React.useState("Default username");
   const [number, onChangeNumber] = React.useState("123-456-7890");
 
   return (
@@ -83,16 +85,34 @@ const ProfileTextInput = () => {
         style={styles.input}
         onChangeText={onChangeNumber}
         value={number}
-        placeholder="useless placeholder"
+        placeholder="123-456-7890"
         keyboardType="numeric"
       />
     </SafeAreaView>
   );
 };
+import * as ImagePicker from 'expo-image-picker';
+
+const pickImage = async () => {
+  let result = await ImagePicker.launchImageLibraryAsync({
+    mediaTypes: ImagePicker.MediaTypeOptions.All,
+    allowsEditing: true,
+    aspect: [4, 3],
+    quality: 1,
+  });
+
+  console.log(result);
+
+  if (!result.cancelled) {
+    setImage(result.uri);
+  }
+};
 
 const myWidth = Dimensions.get("window").width;
 const myHeight = Dimensions.get("window").height;
 class Settings extends React.Component {
+  
+
   handleChoosePhoto = () => {
     console.log("Photo Button pressed");
 
@@ -129,7 +149,7 @@ class Settings extends React.Component {
           <Text style={styles.txt}>{}</Text>
           <Button
             title="Choose Profile Pic"
-            onPress={this.handleChoosePhoto}
+            onPress={pickImage}
           ></Button>
           {/* <Button
           title="Begin"

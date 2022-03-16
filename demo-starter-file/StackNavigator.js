@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./Home";
 import Swipe from "./Swipe";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import data from "./carddata"
 
 const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
