@@ -42,6 +42,8 @@ const app = initializeApp(firebaseConfig);
 // Get a reference to the database service
 const database = getDatabase(app);
 
+let dataReceived = false;
+
 import { ref, child, get } from "firebase/database";
 
 let databaseReference = get(ref(getDatabase()));
@@ -49,36 +51,62 @@ console.log(databaseReference);
 let data = [];
 
 
-class SwipeClass extends React.Component {
-  render() {
-    return <Swipe />;
+
+export default class SwipeClass extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {index: 0,
+      dataReceived: false};
+
   }
+
+  componentWillMount() {
+    this.renderMyData();
 }
 
-const Swipe = () => {
-
-  const [index, setIndex] = useState(0);
-  const onSwipe = () => {
-    setIndex(index + 1);
-  };
-  const navigation = useNavigation();
+renderMyData(){
   databaseReference.then((snapshot) => {
     if (snapshot.exists()) {
       console.log("Data available");
       console.log(snapshot.val());
       data = snapshot.val();
-      this.forceUpdate();
-      this.setState(this.state);
+      this.setState({dataReceived: true});
     } else {
       console.log("No data available");
     }
   }).catch((error) => {
     console.error(error);
   });
+}
+  
+
+
+  render() {
+    
+    return (
+    <>
+    {/* <Text>{this.state.dataReceived ? "Received" : "Waiting"}</Text>
+    <Text>{JSON.stringify(data)}</Text> */}
+    <Swipe/>
+    </>
+    )
+  }
+}
+
+const Swipe = () => {
+
+  const [index, setIndex] = useState(0);
+  const [cardData, setCardData] = useState(0);
+
+  const onSwipe = () => {
+    setIndex(index + 1);
+  };
+  const navigation = useNavigation();
+  
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
+    <View style={styles.container}>
         <Swiper
           useViewOverflow={Platform.OS === "ios"}
           cards={data}
@@ -135,7 +163,6 @@ const Swipe = () => {
   );
 };
 
-export default Swipe;
 
 const styles = StyleSheet.create({
   container: {

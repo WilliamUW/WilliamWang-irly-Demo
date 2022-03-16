@@ -15,6 +15,7 @@ const Card = ({ card }) => {
   // console.log(card);
   //console.log(card.images);
   //console.log(card.images[imgIndex]);
+  if (card) {
   return (
     <TouchableWithoutFeedback onPress={changePhoto}>
       <View style={styles.card}>
@@ -23,6 +24,9 @@ const Card = ({ card }) => {
       </View>
     </TouchableWithoutFeedback>
   );
+  } else {
+    return <Text>That's all folks!</Text>;
+  }
 };
 
 export default Card;

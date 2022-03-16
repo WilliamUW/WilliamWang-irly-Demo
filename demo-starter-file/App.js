@@ -8,6 +8,8 @@ import { useNavigation } from "@react-navigation/core";
 import Home from "./Home";
 import Swipe from "./Swipe";
 import Settings from "./Settings";
+import SwipeClass from "./Swipe";
+
 
 // react-native-vector-icons/Ionicons otherwise.
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -44,7 +46,7 @@ function MyTabs() {
       tabBarInactiveTintColor: 'gray',
     })}>
       <Tab.Screen name="Home" icon={"./assets/human.png"} component={Home} />
-      <Tab.Screen name="Swipe"  component={Swipe} />
+      <Tab.Screen name="Swipe"  component={SwipeClass} />
       <Tab.Screen name="User Profile" component={Settings} />
     </Tab.Navigator>
   );
