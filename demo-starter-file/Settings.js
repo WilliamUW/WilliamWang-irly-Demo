@@ -17,43 +17,45 @@ import { launchCamera, launchImageLibrary } from "react-native-image-picker";
 // import { Upload, Button, Space } from 'antd';
 // import { UploadOutlined } from '@ant-design/icons';
 
-// import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 
-// import { getDatabase } from "firebase/database";
+import { getDatabase } from "firebase/database";
 
-// // TODO: Add SDKs for Firebase products that you want to use
+// TODO: Add SDKs for Firebase products that you want to use
 
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-
-// // Your web app's Firebase configuration
-
-// const firebaseConfig = {
-
-//   apiKey: "AIzaSyAsKEmxVNsnDUDxZJ7kwTZMk8ehDrOdlc0",
-
-//   authDomain: "irly-demo.firebaseapp.com",
-
-//   databaseURL: "https://irly-demo-default-rtdb.firebaseio.com",
-
-//   projectId: "irly-demo",
-
-//   storageBucket: "irly-demo.appspot.com",
-
-//   messagingSenderId: "179945535098",
-
-//   appId: "1:179945535098:web:a6f270ea7e3072ecb0edc3"
-
-// };
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 
-// // Initialize Firebase
+// Your web app's Firebase configuration
 
-// const app = initializeApp(firebaseConfig);
-// // Get a reference to the database service
-// const database = getDatabase(app);
+const firebaseConfig = {
 
-// console.log(database);
+  apiKey: "AIzaSyAsKEmxVNsnDUDxZJ7kwTZMk8ehDrOdlc0",
+
+  authDomain: "irly-demo.firebaseapp.com",
+
+  databaseURL: "https://irly-demo-default-rtdb.firebaseio.com",
+
+  projectId: "irly-demo",
+
+  storageBucket: "irly-demo.appspot.com",
+
+  messagingSenderId: "179945535098",
+
+  appId: "1:179945535098:web:a6f270ea7e3072ecb0edc3"
+
+};
+
+
+// Initialize Firebase
+
+const app = initializeApp(firebaseConfig);
+console.log(firebaseConfig);
+console.log(app);
+// Get a reference to the database service
+const database = getDatabase(app);
+
+console.log(database);
 /*
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
