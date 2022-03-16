@@ -12,11 +12,13 @@ const Card = ({ card }) => {
   const changePhoto = () => {
     setImageIndex((imgIndex + 1) % 3);
   };
-
+  // console.log(card);
+  //console.log(card.images);
+  //console.log(card.images[imgIndex]);
   return (
     <TouchableWithoutFeedback onPress={changePhoto}>
       <View style={styles.card}>
-        <Image source={card.images[imgIndex]} style={styles.cardImage} />
+        <Image source={{uri :card.images[imgIndex]}} style={styles.cardImage} />
         <Text style={styles.txt}>{card.name}</Text>
       </View>
     </TouchableWithoutFeedback>

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Pressable } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import Card from "./Card";
 import carddata from "./carddata";
+import { useNavigation } from "@react-navigation/core";
+
 
 const Swipe = () => {
   const [index, setIndex] = useState(0);
   const onSwipe = () => {
     setIndex(index + 1);
   };
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -60,8 +63,11 @@ const Swipe = () => {
               },
             },
           }}
-        />
+      
+      />
+
       </View>
+
     </SafeAreaView>
   );
 };

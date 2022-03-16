@@ -1,5 +1,16 @@
 //https://www.youtube.com/watch?v=cWdGmUFXua8
-export default [
+
+// Import the functions you need from the SDKs you need
+
+// import { initializeApp } from "firebase/app";
+
+
+var filePath = "./carddata.json";
+var data = require(filePath);
+console.log(data);
+export default data;
+/*
+ export default [
   {
     id: 1,
     name: "Hooman",
@@ -37,3 +48,4 @@ export default [
     ],
   },
 ];
+*/

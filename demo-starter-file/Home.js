@@ -9,6 +9,8 @@ import {
   Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
+import Swipe from "./Swipe";
+
 
 const myWidth = Dimensions.get("window").width;
 const myHeight = Dimensions.get("window").height;
@@ -28,6 +30,12 @@ const Home = () => {
           onPress={() => navigation.navigate("Swipe")}
         >
           <Text style={styles.text}>Begin</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => navigation.navigate("Settings")}
+        >
+          <Text style={styles.text}>Settings</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -60,8 +68,8 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     paddingHorizontal: 5,
     marginTop: 10,
-    marginLeft: myWidth / 2.5,
-    maxWidth: 100,
+    marginLeft: myWidth / 3.5,
+    maxWidth: 150,
     maxHeight: 50,
     borderRadius: 4,
     elevation: 3,

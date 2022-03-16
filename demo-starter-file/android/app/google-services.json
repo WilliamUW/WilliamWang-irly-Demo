@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "179945535098",
+    "firebase_url": "https://irly-demo-default-rtdb.firebaseio.com",
+    "project_id": "irly-demo",
+    "storage_bucket": "irly-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179945535098:android:9e8e6637c714aae2b0edc3",
+        "android_client_info": {
+          "package_name": "com.irly.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179945535098-ac691cjebss1o46j9tegcdk52beqgke2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgyJbfxB8TJksW8bxgk8oaR99m0_25hEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179945535098-ac691cjebss1o46j9tegcdk52beqgke2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
