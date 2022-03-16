@@ -17,7 +17,7 @@ import {launchImageLibrary} from "react-native-image-picker";
 // import { Upload, Button, Space } from 'antd';
 // import { UploadOutlined } from '@ant-design/icons';
 
-const UselessTextInput = () => {
+const ProfileTextInput = () => {
   const [text, onChangeText] = React.useState("Default Username");
   const [number, onChangeNumber] = React.useState("123-456-7890");
 
@@ -73,10 +73,12 @@ render() {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Text style={styles.txt}>Settings Tab</Text>
+      <Text  style={styles.txt}>{
+}</Text>
+        <Text style={styles.txt}>User Profile Tab</Text>
         <Text  style={styles.txt}>{
 }</Text>
-       <UselessTextInput style={styles.txt}></UselessTextInput>
+       <ProfileTextInput style={styles.txt}></ProfileTextInput>
        <Text style={styles.txt}>{
 }</Text>
         <Button title="Choose Profile Pic" onPress={this.handleChoosePhoto}></Button>

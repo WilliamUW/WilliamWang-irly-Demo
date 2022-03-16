@@ -24,7 +24,7 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Swipe" component={Swipe} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen name="User Profile" component={Settings} />
     </Tab.Navigator>
   );
 }
