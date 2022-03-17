@@ -35,7 +35,7 @@ const ProfileTextInput = () => {
 };
 
 export default function ImagePickerExample() {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("https://picsum.photos/300");
 
   useEffect(() => {
     (async () => {
@@ -65,11 +65,11 @@ export default function ImagePickerExample() {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Customize your Profile!</Text>
+      <Text style={styles.txt}>Customize your Profile!</Text>
       <Text></Text>
       <ProfileTextInput />
       <Text></Text>
-      <Button title="Pick Profile Pic" onPress={pickImage} />
+      <Button title="Select Profile Pic" onPress={pickImage} />
       <Text></Text>
       {image && <Text>Your Current Profile Pic:</Text>}
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     fontSize: 20,
-    marginLeft: 20,
+    marginLeft: 10,
   },
   input: {
     marginLeft: 20,

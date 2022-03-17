@@ -46,7 +46,7 @@ function MyTabs() {
       tabBarActiveTintColor: 'tomato',
       tabBarInactiveTintColor: 'gray',
     })}>
-      <Tab.Screen name="Home" icon={"./assets/human.png"} component={Home} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Swipe"  component={SwipeClass} />
       <Tab.Screen name="User Profile" component={ImagePickerExample} />
     </Tab.Navigator>

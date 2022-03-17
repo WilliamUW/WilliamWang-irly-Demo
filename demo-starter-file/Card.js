@@ -25,7 +25,7 @@ const Card = ({ card }) => {
     </TouchableWithoutFeedback>
   );
   } else {
-    return <Text>That's all folks!</Text>;
+    return null;
   }
 };
 
